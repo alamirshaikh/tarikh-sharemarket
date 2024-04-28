@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Puller - Dragger </title>
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+</head>
+<style>
+    body{
+        background-color: white;
+        color:white;
+    }
+</style>
+
+<body> 
+
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+
+        
+
+        @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+body{
+
+  background-color: #eee;
+}
+
+.navbar-nav>li>a{
+
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-right:20px;
+  color: #fff;
+}
+
+
+.navbar-toggler {
+    padding: .20rem .50rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid white;
+
+    }
+
+    .nav-link{
+
+      color: #fff !important;
+    }
+
+
+.wrapper{
+      width: 100%;
+    position: absolute;
+    height: 100%;
+    background-color: #000;
+    clip-path: polygon(81% 0, 100% 0, 100% 50%, 100% 100%, 71% 100%);
+    transition: 1s all;
+}
+
+.navbar-brand{
+
+  color:#fff;
+  font-family: 'Allerta Stencil', sans-serif;
+  margin-bottom: 4px;
+  font-size: 27px;
+}
+
+.navbar-red:hover .wrapper{
+
+  clip-path: polygon(81% 0, 100% 0, 100% 50%, 100% 100%, 65% 100%);
+
+}
+
+.navbar-brand:hover{
+
+  color:#fff;
+  
+}
+
+.navbar-red{
+
+  background-color: rgb(129, 154, 206);
+  color: #fff;
+
+}
+
+.all-show{
+
+  z-index: 10;
+}
+        .iframe-container {
+        
+    
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;    
+        }
+
+        .midd {
+        
+    
+            width: 888px;
+            height: 3017px;
+            overflow: hidden;
+            position: relative;    
+        }
+    
+
+        .title{
+            
+            top: -162px;
+            left: -252px;
+            width: 1517px;
+            position: absolute;
+            height: 600px;
+        }
+
+        .shares{
+            top: -641px;
+            left: -316px;
+            width: 1516px;
+            position: absolute;
+            height: 2785px;
+        }
+    
+
+      
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .col-md-12 {
+            text-align: center;
+            color: #fff;
+        }
+        
+        h4 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .font_red {
+            color: #ff0000;
+        }
+        
+        .nifty_status {
+            font-size: 16px;
+        }
+        
+        #NiftyChart {
+            max-width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            h2 {
+                font-size: 30px;
+            }
+            .nifty_status {
+                font-size: 14px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            h2 {
+                font-size: 24px;
+            }
+            .nifty_status {
+                font-size: 12px;
+            }
+        }
+        
+        .tab_outer {
+            display: flex;
+            background-color:wheat;
+            padding: 20px;
+            border-radius: 50px;
+            gap: 5px;
+            justify-content: center;
+        }
+        
+
+        #half-circle {
+            width: 400px;
+            height: 200px;
+          }
+          .profit-label, .loss-label {
+            font-size: 14px;
+            fill: white;
+          }
+          .profit-label {
+            fill: green;
+          }
+          .loss-label {
+            fill: red;
+          }
+        .btn_tab {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 0 5px;
+            color: black;
+            text-decoration: none;
+        }
+        
+        .btn_tab.active {
+            background-color: navy;
+            color: white;
+        }
+        
+        .whatsapp-float-left {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 999;
+        }
+        
+        .whatsapp-float-left a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            font-size: 24px;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float-left a:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar-red navbar-dark">
+        <div class="wrapper">
+          
+        </div>
+  <div class="container-fluid all-show">
+    <a class="navbar-brand" href="#">FoxTrade <i class="fa fa-codepen"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cources</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">contact</a>
+        </li>
+
+      
+        
+        
+      </ul>
+      <div class="d-flex flex-column sim">
+
+        <span>Trade Will be Good</span>
+        <small class="text-primary">view your quote</small>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+    <div style="padding: 20px;" class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="tab_outer">
+                <a   id="50"  onclick="nifty50()"  class="btn btn_tab active">Nifty 50</a>
+                <a  id="bank" onclick="bank()"   class="btn btn_tab">Bank Nifty</a>
+                <a  id="Fin" onclick="Fin()"  class="btn btn_tab">Fin Nifty</a>
+                <a  id="midcap" onclick="midcap()" class="btn btn_tab">Midcap Nifty</a>
+                <a  id="sensex" onclick="sensex()" class="btn btn_tab">Sensex</a>
+            </div>
+        </div>
+
+    
+
+  
+        <div class="iframe-container">
+
+           
+            
+            <iframe id="titles" class="title" src="https://in.investing.com/indices/s-p-cnx-nifty-components" scrolling="no"  ></iframe>
+                 
+        </div>
+        
+         
+         
+        <svg width="400" height="400"></svg> 
+ <div class="midd">
+    <iframe id="share" class="shares" src="https://in.investing.com/indices/s-p-cnx-nifty-components" scrolling="no"  ></iframe>
+            
+ </div>
+
+
+        <div class="whatsapp-float-left" id="whatsapp_f_btn" style="background-size: cover; visibility: visible;">
+            <a href="https://api.whatsapp.com/send?phone=919359510704" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script>
+
+
+
+
+
+
+
+// URL of the webpage to scrape
+
+ 
+
+ const niftylist = []
+// Function to scrape the webpage
+const scrapeWebpage = async () => {
+    const bse = 'https://www.ventura1.com/equity/advances-and-declines.aspx?EXCHG=6ozlMFI26%2fc%3d&encrypt=m2ayR592PNP2CASXZ7T4nw%3d%3d';
+    const nse = "https://www.ventura1.com/equity/advances-and-declines.aspx?EXCHG=53ip6jlkhhQ%3d&encrypt=H1VelOyrt74ewVAAiS9jKg%3d%3d";
+
+    // CORS Anywhere proxy URL
+const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
+    
+  
+        // Send a GET request to the webpage using Fetch API
+
+        const response = await fetch(bse);
+
+        const response1 = await fetch(nse);
+
+
+        // Check if the request was successful (status code 200)
+        if (!response.ok) {
+            throw new Error('Failed to fetch webpage');
+        }
+       
+        const html = await response.text();
+        
+        const html1 = await response1.text();
+
+
+
+        // Parse the HTML string into a DOM object
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const tdElements = doc.querySelectorAll('td.GridDataRight');
+    
+
+        const parser1 = new DOMParser();
+        const doc1 = parser1.parseFromString(html1, 'text/html');
+        const tdElements1 = doc1.querySelectorAll('td.GridDataRight');
+    
+
+
+// Define the row and column indices you want to retrieve
+const targetRowIndex = 56; // For example, the third row (zero-based index)
+const targetColumnIndex = 1; // For example, the second column (zero-based index)
+ const bank = 1;
+const fin = 51;
+const nifty = 30;
+const mid = 14;
+
+
+// Loop through each <td> element in tdElements
+tdElements.forEach((tdElement) => {
+    // Get the parent <tr> element of the current <td> element
+    const row = tdElement.closest('tr');
+
+    if(row.rowIndex == targetRowIndex)
+    {
+
+    
+    // Check if the row index matches the target row index
+        const cellData = row.cells[targetColumnIndex].textContent.trim();
+       sensex = cellData;
+    }
+
+});
+
+tdElements1.forEach((tdElements1) => {
+    // Get the parent <tr> element of the current <td> element
+    const row1 = tdElements1.closest('tr');
+
+    // Check if the row index matches the target row index
+
+     if(row1.rowIndex == bank )
+     {
+
+     
+         const cellData1 = row1.cells[1].textContent.trim();
+     banknifty = cellData1;
+    
+    
+     }
+
+
+     
+     if(row1.rowIndex == mid )
+     {
+
+     
+         const cellData1 = row1.cells[1].textContent.trim();
+         midcap = cellData1;
+    
+    
+     }
+
+
+     if(row1.rowIndex == nifty )
+     {
+
+     
+         const cellData1 = row1.cells[1].textContent.trim();
+         nifty50 = cellData1;
+     
+    
+    
+     }
+
+
+
+     if(row1.rowIndex == fin )
+     {
+
+     
+         const cellData1 = row1.cells[1].textContent.trim();
+     
+         finnifty = cellData1;
+     
+    
+     }
+
+});
+
+ 
+
+niftylist.push(nifty);
+niftylist.push(finnifty);
+niftylist.push(midcap);
+niftylist.push(sensex);
+niftylist.push(banknifty);
+
+ 
+
+}
+
+
+
+
+ 
+
+ 
+
+
+function pullerdragger(gainer,total){
+
+    const loser = total-gainer;
+
+  list = []
+
+  list.push(total);
+  list.push(loser);
+  list.push(gainer);
+
+     return list;
+ 
+}
+ 
+
+$(document).ready(function(){
+ 
+scrapeWebpage()
+.then(() => { 
+
+   console.log(niftylist[0]); // Now niftylist should be accessible here
+
+
+const data = [
+{ label: "Puller", value: niftylist[0] },
+{ label: "Dragger", value: pullerdragger(niftylist[0],50)[1] }
+];
+
+const width = 400;
+const height = 400;
+const radius = Math.min(width, height) / 2;
+
+const svg = d3.select("svg")
+.append("g")
+.attr("transform", `translate(${width / 2},${height / 2})`);
+
+const color = d3.scaleOrdinal()
+.domain(data.map(d => d.label))
+.range(["#2ca02c", "#d62728"]);
+
+const pie = d3.pie()
+.value(d => d.value)
+.sort(null);
+
+const arc = d3.arc()
+.innerRadius(radius * 0.5)
+.outerRadius(radius * 0.8)
+.cornerRadius(10)
+.padAngle(0.03);
+
+const arcs = svg.selectAll("arc")
+.data(pie(data))
+.enter()
+.append("g")
+.attr("class", "arc");
+arcs.append("path")
+    .attr("d", arc)
+    .attr("fill", d => color(d.data.label))
+    .style("filter", "url(#drop-shadow)") // Add drop shadow for depth
+    .transition()
+    .duration(1000)
+    .attrTween("d", function(d) {
+        const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+        return function(t) {
+            return arc(interpolate(t));
+        };
+    });
+
+// Add drop shadow filter definition
+svg.append("defs")
+    .append("filter")
+    .attr("id", "drop-shadow")
+    .attr("height", "130%")
+    .append("feGaussianBlur")
+    .attr("in", "SourceAlpha")
+    .attr("stdDeviation", 5)
+    .attr("result", "blur");
+
+svg.select("#drop-shadow")
+    .append("feOffset")
+    .attr("dx", 0)
+    .attr("dy", 4)
+    .attr("result", "offsetBlur");
+
+svg.select("#drop-shadow")
+    .append("feFlood")
+    .attr("flood-color", "rgba(0,0,0,0.75)")
+    .attr("result", "color");
+
+svg.select("#drop-shadow")
+    .append("feComposite")
+    .attr("in2", "offsetBlur")
+    .attr("operator", "in");
+
+svg.select("#drop-shadow")
+    .append("feBlend")
+    .attr("in", "SourceGraphic");
+arcs.append("text")
+.attr("transform", function(d) {
+    const pos = arc.centroid(d);
+    pos[1] += 20; // move the label down
+    return `translate(${pos})`;
+})
+.attr("text-anchor", "middle")
+.text(d => d.data.label)
+.style("fill", "white");
+
+svg.append("text")
+.attr("text-anchor", "middle")
+.attr("font-size", "20px")
+.text(niftylist[0]+"/"+pullerdragger(niftylist[0],50)[1])
+.attr("dy", "0.5em");
+ 
+})
+});
+
+$(document).ready(function(){
+    $('.btn_tab').click(function(){
+        $('.btn_tab').removeClass('active');
+        $(this).addClass('active');
+    });
+});
+
+$(document).ready(function(){
+    
+            
+             
+         
+            $("#50").click(function(){
+              
+                
+                
+                $("#titles").attr("src","https://in.investing.com/indices/s-p-cnx-nifty-components")
+                $("#share").attr("src","https://in.investing.com/indices/s-p-cnx-nifty-components")
+                
+                $(".shares").css("height","2785px")
+                $(".shares").css("top","-641px")
+                $(".shares").css("left","-316px")
+                $(".shares").css("width","1516px")
+
+
+                const svg1 = d3.select("svg")
+                .selectAll("*").remove()  // Remove existing elements within SVG
+                
+
+                scrapeWebpage()
+                .then(() => { 
+                
+                   console.log(niftylist[0]); // Now niftylist should be accessible here
+                
+                
+                const data = [
+                { label: "Puller", value: niftylist[0] },
+                { label: "Dragger", value: pullerdragger(niftylist[0],50)[1] }
+                ];
+                
+                const width = 400;
+                const height = 400;
+                const radius = Math.min(width, height) / 2;
+                
+                const svg = d3.select("svg")
+                .append("g")
+                .attr("transform", `translate(${width / 2},${height / 2})`);
+                
+                const color = d3.scaleOrdinal()
+                .domain(data.map(d => d.label))
+                .range(["#2ca02c", "#d62728"]);
+                
+                const pie = d3.pie()
+                .value(d => d.value)
+                .sort(null);
+                
+                const arc = d3.arc()
+                .innerRadius(radius * 0.5)
+                .outerRadius(radius * 0.8)
+                .cornerRadius(10)
+                .padAngle(0.03);
+                
+                const arcs = svg.selectAll("arc")
+                .data(pie(data))
+                .enter()
+                .append("g")
+                .attr("class", "arc");
+                
+                arcs.append("path")
+                .attr("d", arc)
+                .attr("fill", d => color(d.data.label))
+                .transition()
+                .duration(1000)
+                .attrTween("d", function(d) {
+                    const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                    return function(t) {
+                        return arc(interpolate(t));
+                    };
+                });
+                
+                arcs.append("text")
+                .attr("transform", function(d) {
+                    const pos = arc.centroid(d);
+                    pos[1] += 20; // move the label down
+                    return `translate(${pos})`;
+                })
+                .attr("text-anchor", "middle")
+                .text(d => d.data.label)
+                .style("fill", "white");
+                
+                                
+svg.append("text")
+.attr("text-anchor", "middle")
+.attr("font-size", "20px")
+.text(niftylist[0]+"/"+pullerdragger(niftylist[0],50)[1])
+.attr("dy", "0.5em");
+                
+               
+                
+                })
+
+
+
+
+
+            });
+
+            $("#bank").click(function(){
+              
+                
+                $("#titles").attr("src","https://in.investing.com/indices/bank-nifty-components")
+                $("#share").attr("src","https://in.investing.com/indices/bank-nifty-components")
+                 $(".shares").css("height","1094px")
+                 $(".shares").css("top","-531px")
+                 $(".shares").css("left","-316px")
+    
+
+                 const svg1 = d3.select("svg")
+                 .selectAll("*").remove()  // Remove existing elements within SVG
+                 
+
+                 scrapeWebpage()
+                 .then(() => { 
+                 
+                    console.log("bank"); // Now niftylist should be accessible here
+                 
+                    
+
+                    const data = [
+                 { label: "Puller", value: niftylist[4] },
+                 { label: "Dragger", value: pullerdragger(niftylist[4],12)[1] }
+                 ];
+                 
+                 const width = 400;
+                 const height = 400;
+                 const radius = Math.min(width, height) / 2;
+                 
+                 const svg = d3.select("svg")
+                 .append("g")
+                 .attr("transform", `translate(${width / 2},${height / 2})`);
+                 
+                 const color = d3.scaleOrdinal()
+                 .domain(data.map(d => d.label))
+                 .range(["#2ca02c", "#d62728"]);
+                 
+                 const pie = d3.pie()
+                 .value(d => d.value)
+                 .sort(null);
+                 
+                 const arc = d3.arc()
+                 .innerRadius(radius * 0.5)
+                 .outerRadius(radius * 0.8)
+                 .cornerRadius(10)
+                 .padAngle(0.03);
+                 
+                 const arcs = svg.selectAll("arc")
+                 .data(pie(data))
+                 .enter()
+                 .append("g")
+                 .attr("class", "arc");
+                 
+                 arcs.append("path")
+                 .attr("d", arc)
+                 .attr("fill", d => color(d.data.label))
+                 .transition()
+                 .duration(1000)
+                 .attrTween("d", function(d) {
+                     const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                     return function(t) {
+                         return arc(interpolate(t));
+                     };
+                 });
+                 
+                 arcs.append("text")
+                 .attr("transform", function(d) {
+                     const pos = arc.centroid(d);
+                     pos[1] += 20; // move the label down
+                     return `translate(${pos})`;
+                 })
+                 .attr("text-anchor", "middle")
+                 .text(d => d.data.label)
+                 .style("fill", "white");
+                
+svg.append("text")
+.attr("text-anchor", "middle")
+.attr("font-size", "20px")
+.text(niftylist[4]+"/"+pullerdragger(niftylist[4],12)[1])
+.attr("dy", "0.5em");
+ 
+                 
+                 })
+
+
+            });
+
+
+            
+            $("#Fin").click(function(){
+              
+                $(".shares").css("top","-533px")
+                $(".shares").css("left","-316px")
+                $("#titles").attr("src","https://in.investing.com/indices/cnx-finance-components")
+                $("#share").attr("src","https://in.investing.com/indices/cnx-finance-components")
+                $(".shares").css("height","1428px") 
+                const svg1 = d3.select("svg")
+                .selectAll("*").remove()  // Remove existing elements within SVG
+                
+
+                scrapeWebpage()
+                .then(() => { 
+                
+                   console.log("fin"); // Now niftylist should be accessible here
+                
+                
+                const data = [
+                { label: "Puller", value: niftylist[1] },
+                { label: "Dragger", value: pullerdragger(niftylist[1],19)[1] }
+                ];
+                
+                const width = 400;
+                const height = 400;
+                const radius = Math.min(width, height) / 2;
+                
+                const svg = d3.select("svg")
+                .append("g")
+                .attr("transform", `translate(${width / 2},${height / 2})`);
+                
+                const color = d3.scaleOrdinal()
+                .domain(data.map(d => d.label))
+                .range(["#2ca02c", "#d62728"]);
+                
+                const pie = d3.pie()
+                .value(d => d.value)
+                .sort(null);
+                
+                const arc = d3.arc()
+                .innerRadius(radius * 0.5)
+                .outerRadius(radius * 0.8)
+                .cornerRadius(10)
+                .padAngle(0.03);
+                
+                const arcs = svg.selectAll("arc")
+                .data(pie(data))
+                .enter()
+                .append("g")
+                .attr("class", "arc");
+                
+                arcs.append("path")
+                .attr("d", arc)
+                .attr("fill", d => color(d.data.label))
+                .transition()
+                .duration(1000)
+                .attrTween("d", function(d) {
+                    const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                    return function(t) {
+                        return arc(interpolate(t));
+                    };
+                });
+                
+                arcs.append("text")
+                .attr("transform", function(d) {
+                    const pos = arc.centroid(d);
+                    pos[1] += 20; // move the label down
+                    return `translate(${pos})`;
+                })
+                .attr("text-anchor", "middle")
+                .text(d => d.data.label)
+                .style("fill", "white");
+                
+             
+svg.append("text")
+.attr("text-anchor", "middle")
+.attr("font-size", "20px")
+.text(niftylist[1]+"/"+pullerdragger(niftylist[1],19)[1])
+.attr("dy", "0.5em");
+ 
+               
+                
+                })
+
+            
+            });
+               
+            $("#midcap").click(function(){
+              
+                
+                $("#titles").attr("src","https://in.investing.com/indices/nifty-midcap-50-components")
+                $("#share").attr("src","https://in.investing.com/indices/nifty-midcap-50-components")
+                $(".shares").css("height","2792px") 
+                $(".shares").css("top","-667px")
+                $(".shares").css("left","-316px")
+                $(".shares").css("width","1516px")
+
+                const svg1 = d3.select("svg")
+                .selectAll("*").remove()  // Remove existing elements within SVG
+                
+
+                scrapeWebpage()
+                .then(() => { 
+                
+                   console.log("midcap"); // Now niftylist should be accessible here
+                
+                
+                const data = [
+                { label: "Puller", value: niftylist[2] },
+                { label: "Dragger", value: pullerdragger(niftylist[2],50)[1] }
+                ];
+                
+                const width = 400;
+                const height = 400;
+                const radius = Math.min(width, height) / 2;
+                
+                const svg = d3.select("svg")
+                .append("g")
+                .attr("transform", `translate(${width / 2},${height / 2})`);
+                
+                const color = d3.scaleOrdinal()
+                .domain(data.map(d => d.label))
+                .range(["#2ca02c", "#d62728"]);
+                
+                const pie = d3.pie()
+                .value(d => d.value)
+                .sort(null);
+                
+                const arc = d3.arc()
+                .innerRadius(radius * 0.5)
+                .outerRadius(radius * 0.8)
+                .cornerRadius(10)
+                .padAngle(0.03);
+                
+                const arcs = svg.selectAll("arc")
+                .data(pie(data))
+                .enter()
+                .append("g")
+                .attr("class", "arc");
+                
+                arcs.append("path")
+                .attr("d", arc)
+                .attr("fill", d => color(d.data.label))
+                .transition()
+                .duration(1000)
+                .attrTween("d", function(d) {
+                    const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                    return function(t) {
+                        return arc(interpolate(t));
+                    };
+                });
+                
+                arcs.append("text")
+                .attr("transform", function(d) {
+                    const pos = arc.centroid(d);
+                    pos[1] += 20; // move the label down
+                    return `translate(${pos})`;
+                })
+                .attr("text-anchor", "middle")
+                .text(d => d.data.label)
+                .style("fill", "white");
+                
+          
+svg.append("text")
+.attr("text-anchor", "middle")
+.attr("font-size", "20px")
+.text(niftylist[2]+"/"+pullerdragger(niftylist[2],50)[1])
+.attr("dy", "0.5em");
+ 
+      
+                })
+
+
+
+
+
+
+
+
+
+
+
+            });
+
+            $("#sensex").click(function(){
+              
+                
+                $("#titles").attr("src","https://in.investing.com/indices/sensex-components")
+                $("#share").attr("src","https://in.investing.com/indices/sensex-components")
+                $(".shares").css("height","1831px") 
+                $(".shares").css("top","-541px")
+                
+                const svg1 = d3.select("svg")
+                .selectAll("*").remove()  // Remove existing elements within SVG
+                
+
+                
+                scrapeWebpage()
+                .then(() => { 
+                
+                   console.log("bank"); // Now niftylist should be accessible here
+                
+                
+                const data = [
+                { label: "Puller", value: niftylist[3] },
+                { label: "Dragger", value: pullerdragger(niftylist[3],30)[1] }
+                ];
+                
+                const width = 400;
+                const height = 400;
+                const radius = Math.min(width, height) / 2;
+                
+                const svg = d3.select("svg")
+                .append("g")
+                .attr("transform", `translate(${width / 2},${height / 2})`);
+                
+                const color = d3.scaleOrdinal()
+                .domain(data.map(d => d.label))
+                .range(["#2ca02c", "#d62728"]);
+                
+                const pie = d3.pie()
+                .value(d => d.value)
+                .sort(null);
+                
+                const arc = d3.arc()
+                .innerRadius(radius * 0.5)
+                .outerRadius(radius * 0.8)
+                .cornerRadius(10)
+                .padAngle(0.03);
+                
+                const arcs = svg.selectAll("arc")
+                .data(pie(data))
+                .enter()
+                .append("g")
+                .attr("class", "arc");
+                
+                arcs.append("path")
+                .attr("d", arc)
+                .attr("fill", d => color(d.data.label))
+                .transition()
+                .duration(1000)
+                .attrTween("d", function(d) {
+                    const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                    return function(t) {
+                        return arc(interpolate(t));
+                    };
+                });
+                
+                arcs.append("text")
+                .attr("transform", function(d) {
+                    const pos = arc.centroid(d);
+                    pos[1] += 20; // move the label down
+                    return `translate(${pos})`;
+                })
+                .attr("text-anchor", "middle")
+                .text(d => d.data.label)
+                .style("fill", "white");
+                
+    
+svg.append("text")
+.attr("text-anchor", "middle")
+.attr("font-size", "20px")
+.text(niftylist[3]+"/"+pullerdragger(niftylist[3],30)[1])
+.attr("dy", "0.5em");
+ 
+           
+                })
+
+                
+
+            });
+
+
+
+
+
+
+      
+            
+
+
+        });
+
+
+        
+
+    </script>
+
+    </body>
+
+    </html> 
+    
